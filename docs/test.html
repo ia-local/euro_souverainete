@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro Souverain - bet 647</title>
+    <style>
+        :root { --euro-blue: #003399; --gold: #FFCC00; }
+        body { font-family: 'Arial', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; color: var(--euro-blue); flex-direction: column; }
+        h1 { border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        .status { margin-top: 20px; padding: 10px; background: white; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Souveraineté Monétaire Européenne</h1>
+    <p>Portail de traçabilité RUP & CVNU</p>
+    <div class="status" id="ai-status">État IA : En attente du serveur...</div>
+
+    <script>
+        // Test de connexion à l'IA Souveraine au chargement
+        fetch('/api/sovereign-intelligence', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: "Confirme que le système CVNU est prêt." })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ai-status').innerText = "Réponse IA Souveraine : " + data.response;
+        })
+        .catch(err => {
+            document.getElementById('ai-status').innerText = "Erreur de connexion au LPU.";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* =========================================
+   1. VARIABLES & CONFIGURATION (THEMING)
+   ========================================= */
+:root {
+    /* Palette Institutionnelle */
+    --euro-blue: #003399;        /* Bleu Drapeau Européen */
+    --euro-blue-dark: #002266;   /* Bleu Nuit (Contrastes) */
+    --gold: #FFCC00;             /* Or Étoiles (Accents) */
+    --gold-dim: #D4AF37;         /* Or Vieilli (Texte sur blanc) */
+    
+    /* Palette Structurelle */
+    --bg-paper: #F9F9F9;         /* Fond général (Papier grain) */
+    --bg-white: #FFFFFF;         /* Fond Contenu */
+    --text-main: #333333;        /* Gris Anthracite (Lecture) */
+    --text-light: #666666;       /* Gris Moyen (Meta) */
+    
+    /* Typographie */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Espacements */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    
+    /* UI Elements */
+    --radius: 4px;               /* Coins peu arrondis (Sérieux) */
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   2. RESET & BASE
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* Conteneur Centré Standard */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Helpers Flexbox */
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.align-center { align-items: center; }
+
+/* =========================================
+   3. HEADER & NAVIGATION
+   ========================================= */
+.top-bar {
+    background-color: var(--euro-blue-dark);
+    color: white;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+}
+
+.lang-nav a {
+    margin-left: 1rem;
+    opacity: 0.7;
+    font-weight: 600;
+}
+.lang-nav a.active, .lang-nav a:hover { opacity: 1; color: var(--gold); }
+
+.site-header {
+    background: var(--bg-white);
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow);
+    border-bottom: 3px solid var(--gold);
+}
+
+.logo-block { display: flex; align-items: center; gap: 1rem; }
+
+.logo-symbol {
+    width: 50px; height: 50px;
+    background: var(--euro-blue);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    border: 2px solid var(--gold);
+}
+
+.logo-text { display: flex; flex-direction: column; }
+.party-name { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
+.site-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--euro-blue); }
+
+.main-nav ul { display: flex; gap: 2rem; }
+.main-nav a { font-weight: 500; color: var(--euro-blue); position: relative; }
+.main-nav a:hover, .main-nav a.active { color: var(--euro-blue-dark); }
+.main-nav a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+    background: var(--gold); transition: 0.3s;
+}
+.main-nav a:hover::after { width: 100%; }
+
+/* =========================================
+   4. HERO SECTION (STYLE BILLET DE BANQUE)
+   ========================================= */
+.hero-section {
+    position: relative;
+    background: var(--euro-blue);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Simulation subtile de texture de sécurité */
+.guilloche-pattern {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px);
+    pointer-events: none;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative; z-index: 2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;
+    max-width: 700px; margin-left: auto; margin-right: auto;
+    position: relative; z-index: 2;
+}
+
+/* Boutons */
+.cta-group { display: flex; gap: 1rem; justify-content: center; position: relative; z-index: 2; }
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--euro-blue-dark);
+}
+.btn-primary:hover { background: #E6B800; }
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+}
+.btn-secondary:hover { background: white; color: var(--euro-blue); }
+
+/* =========================================
+   5. CONTENU & TYPOGRAPHIE
+   ========================================= */
+.content-section { padding: var(--spacing-lg) 0; }
+.read-width { max-width: 800px; } /* Largeur optimale de lecture */
+
+h2 { font-family: var(--font-heading); color: var(--euro-blue); font-size: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+h3 { font-family: var(--font-heading); color: var(--text-main); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+p { margin-bottom: 1.5rem; text-align: justify; }
+
+.info-box {
+    background: #eef2f9;
+    border-left: 4px solid var(--euro-blue);
+    padding: 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 2rem 0;
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+.site-footer {
+    background: var(--text-main);
+    color: white;
+    padding: var(--spacing-lg) 0 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem; margin-bottom: 3rem;
+}
+
+.footer-col h4 { color: var(--gold); margin-bottom: 1rem; font-family: var(--font-heading); }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col a:hover { color: var(--gold); }
+
+.footer-legal {
+    text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1rem; color: #888; font-size: 0.8rem;
+}
+
+/* =========================================
+   7. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .main-nav ul { display: none; } /* Pour l'instant on cache, prévoir menu burger si besoin */
+    .cta-group { flex-direction: column; }
+}
