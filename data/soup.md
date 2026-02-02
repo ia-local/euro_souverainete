@@ -433,3 +433,548 @@ Prochaine étape
 Le serveur est prêt. Il intègre la logique web statique et la puissance de calcul IA via Groq.
 
 Dès que tu as copié ces fichiers, tu peux lancer la commande node server.js. Est-ce que je lance la rédaction de la page "Accueil" (Le Manifeste Politique) pour remplacer le fichier de test ?
+
+OK pour la phase de test, c'est pas mal. Par contre on va réviser la structure générale et la charte graphique donc la base de notre index pour toutes les pages et la feuille de style.css
+
+C'est parti. On passe du "bricolage" à l'Architecture Institutionnelle.
+
+Pour incarner la crédibilité d'une réforme monétaire européenne, le design ne doit pas être "joli", il doit être Statutaire. Il doit évoquer la sécurité (comme un billet de banque), la rigueur (comme un livre de comptes) et la modernité (le CVNU).
+
+Voici la Structure Maître (Master Template) et la Feuille de Style (Global Theme). Ces fichiers sont les invariants graphiques de tout le site.
+
+1. Le Concept Visuel : "Trust & Sovereignty"
+Typographie : Mariage entre Merriweather (Sérif, évoque la tradition bancaire et les textes de loi) et Inter (Sans-Sérif, évoque l'interface numérique et la clarté).
+
+Texture : Utilisation subtile de motifs "Guillochés" (les lignes fines des billets de banque) via CSS.
+
+Couleurs : Bleu UE (Institution), Or (Valeur), Blanc Cassé (Papier officiel).
+
+2. La Structure HTML Invariante (/docs/index.html)
+Ce code est le squelette. Il utilise les balises sémantiques HTML5 pour le référencement et l'accessibilité.
+
+HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portail de la Souveraineté Monétaire Européenne - Projet Party 647 - RUP & CVNU">
+    <meta name="author" content="Party 647 - Commission Numérique">
+    
+    <title>Euro Souverain | Party 647</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@300;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span class="secure-badge">🔒 Protocole CVNU Sécurisé</span>
+            <nav class="lang-nav">
+                <a href="#" class="active">FR</a>
+                <a href="#">DE</a>
+                <a href="#">IT</a>
+                <a href="#">EN</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container flex-between align-center">
+            <div class="logo-block">
+                <div class="logo-symbol">€</div>
+                <div class="logo-text">
+                    <span class="party-name">PARTY 647</span>
+                    <span class="site-title">Souveraineté Monétaire</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#manifeste" class="active">Manifeste</a></li>
+                    <li><a href="#technique">Architecture CVNU</a></li>
+                    <li><a href="#bundesdruckerei">Imprimerie & Sécurité</a></li>
+                    <li><a href="#roadmap">Plan d'Action</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">De la Dette à la Valeur Travail.</h1>
+                <p class="hero-subtitle">Proposition pour une signature nationale de l'Euro finançant le Revenu Universel Progressif.</p>
+                <div class="cta-group">
+                    <a href="#technique" class="btn btn-primary">Lire le Dossier Technique</a>
+                    <a href="#bundesdruckerei" class="btn btn-secondary">Le Rôle de la Bundesdruckerei</a>
+                </div>
+            </div>
+            <div class="guilloche-pattern"></div>
+        </section>
+
+        <section class="content-section">
+            <div class="container read-width">
+                <article>
+                    <h2>L'Invariant Monétaire</h2>
+                    <p>La monnaie ne doit plus être un outil de dette, mais une mesure de l'énergie humaine. Grâce à la signature cryptographique nationale, chaque État membre reprend le contrôle de sa fiscalité circulaire.</p>
+                    
+                    <div class="info-box">
+                        <h3>ℹ️ Note de Synthèse</h3>
+                        <p>Ce portail présente les spécifications techniques pour l'intégration du CVNU (Curriculum Vitae Numérique Universel) dans les processus de la Bundesdruckerei et d'EuropaFi.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Party 647</h4>
+                    <p>Système Monétaire Distribué.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Conformité</h4>
+                    <p>Sous contrôle de la CNCCFP.<br>Transparence Algorithmique Totale.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="#">GitHub Repository</a></li>
+                        <li><a href="#">Documentation API</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2026 Party 647 - Architecture Européenne Décentralisée.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+3. La Feuille de Style "Régalienne" (/docs/assets/css/style.css)
+C'est ici que se joue l'ambiance. Pas de frameworks, du CSS pur, maintenable et rapide.
+
+CSS
+/* =========================================
+   1. VARIABLES & CONFIGURATION (THEMING)
+   ========================================= */
+:root {
+    /* Palette Institutionnelle */
+    --euro-blue: #003399;        /* Bleu Drapeau Européen */
+    --euro-blue-dark: #002266;   /* Bleu Nuit (Contrastes) */
+    --gold: #FFCC00;             /* Or Étoiles (Accents) */
+    --gold-dim: #D4AF37;         /* Or Vieilli (Texte sur blanc) */
+    
+    /* Palette Structurelle */
+    --bg-paper: #F9F9F9;         /* Fond général (Papier grain) */
+    --bg-white: #FFFFFF;         /* Fond Contenu */
+    --text-main: #333333;        /* Gris Anthracite (Lecture) */
+    --text-light: #666666;       /* Gris Moyen (Meta) */
+    
+    /* Typographie */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Espacements */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    
+    /* UI Elements */
+    --radius: 4px;               /* Coins peu arrondis (Sérieux) */
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   2. RESET & BASE
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* Conteneur Centré Standard */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Helpers Flexbox */
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.align-center { align-items: center; }
+
+/* =========================================
+   3. HEADER & NAVIGATION
+   ========================================= */
+.top-bar {
+    background-color: var(--euro-blue-dark);
+    color: white;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+}
+
+.lang-nav a {
+    margin-left: 1rem;
+    opacity: 0.7;
+    font-weight: 600;
+}
+.lang-nav a.active, .lang-nav a:hover { opacity: 1; color: var(--gold); }
+
+.site-header {
+    background: var(--bg-white);
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow);
+    border-bottom: 3px solid var(--gold);
+}
+
+.logo-block { display: flex; align-items: center; gap: 1rem; }
+
+.logo-symbol {
+    width: 50px; height: 50px;
+    background: var(--euro-blue);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    border: 2px solid var(--gold);
+}
+
+.logo-text { display: flex; flex-direction: column; }
+.party-name { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
+.site-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--euro-blue); }
+
+.main-nav ul { display: flex; gap: 2rem; }
+.main-nav a { font-weight: 500; color: var(--euro-blue); position: relative; }
+.main-nav a:hover, .main-nav a.active { color: var(--euro-blue-dark); }
+.main-nav a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+    background: var(--gold); transition: 0.3s;
+}
+.main-nav a:hover::after { width: 100%; }
+
+/* =========================================
+   4. HERO SECTION (STYLE BILLET DE BANQUE)
+   ========================================= */
+.hero-section {
+    position: relative;
+    background: var(--euro-blue);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Simulation subtile de texture de sécurité */
+.guilloche-pattern {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px);
+    pointer-events: none;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative; z-index: 2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;
+    max-width: 700px; margin-left: auto; margin-right: auto;
+    position: relative; z-index: 2;
+}
+
+/* Boutons */
+.cta-group { display: flex; gap: 1rem; justify-content: center; position: relative; z-index: 2; }
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--euro-blue-dark);
+}
+.btn-primary:hover { background: #E6B800; }
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+}
+.btn-secondary:hover { background: white; color: var(--euro-blue); }
+
+/* =========================================
+   5. CONTENU & TYPOGRAPHIE
+   ========================================= */
+.content-section { padding: var(--spacing-lg) 0; }
+.read-width { max-width: 800px; } /* Largeur optimale de lecture */
+
+h2 { font-family: var(--font-heading); color: var(--euro-blue); font-size: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+h3 { font-family: var(--font-heading); color: var(--text-main); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+p { margin-bottom: 1.5rem; text-align: justify; }
+
+.info-box {
+    background: #eef2f9;
+    border-left: 4px solid var(--euro-blue);
+    padding: 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 2rem 0;
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+.site-footer {
+    background: var(--text-main);
+    color: white;
+    padding: var(--spacing-lg) 0 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem; margin-bottom: 3rem;
+}
+
+.footer-col h4 { color: var(--gold); margin-bottom: 1rem; font-family: var(--font-heading); }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col a:hover { color: var(--gold); }
+
+.footer-legal {
+    text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1rem; color: #888; font-size: 0.8rem;
+}
+
+/* =========================================
+   7. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .main-nav ul { display: none; } /* Pour l'instant on cache, prévoir menu burger si besoin */
+    .cta-group { flex-direction: column; }
+}
+Prochaine étape immédiate
+Il faut que tu mettes ces fichiers en place dans ton dossier :
+
+Créer /docs/assets/css/style.css et y coller le CSS.
+
+Mettre à jour /docs/index.html avec le code HTML.
+
+Une fois fait, dis-moi "C'est en ligne localement". Ensuite, nous rédigerons le contenu de la section "Manifeste" pour expliquer clairement le concept de "TVA Circulaire = RUP" aux partenaires européens.
+
+OK c'est pas trop mal, c'est vrai que tu me mettre en avant la dette la pseudo qui n'existe qu'au yeux de la banque que de la BCE celle qui est provoquée par les banques privées. Par compte là on parle bien d'un nos receveurs et du citoyen donc la souveraineté en général, donc pour l'instant c'est quelque chose qui me plaît pas vraiment l'idée qu'on présente la dette ça c'est un état de fait un du banque privé donc on, on va peut-être rédiger une page avis de situation ou quelque chose comme ça tu vois parce que bon y a pas mal de défaillances dans le pays depuis arrive au pouvoir d'Emmanuel Macron, notamment en ce qui concerne la croissance politique le 49 trois dans les les projets de loi et la finance. Donc limite on peut faire un bilan de situation depuis le passage à l'euro 2000, elle préfère un homme de 2005, par rapport au projet de la monnaie unique, la signature à chaque pays et la réalité de la situation, donc ce bilan ne sera pas nécessairement intégré aussi Web, de présentation du projet de réforme du code monétaire et financier parce que déjà on va devoir retrouver tel tel l'article pour pouvoir réguler et offrir à chaque citoyen détenteur du CV numérique, un revenu universel progressif afin de relancer l'économie par la formation et Emploi, donc il est locataire, on pourra assimiler le cadre de valeur au curriculum invité numérique CV et le modèle d'économie circulaire n'implique pas l'imprimerie mais simplement des opérations comptables au sujet de la valeur ajoutée, un périmètre d'activité des opérations de collègues décaissement redistribution de la TVA des billets, c'est la dévaluer le projet de Le, c'est de rechercher une nouvelle signature sur chacun des billets présent sur le marché, donc il y a de nombreux pays en Europe qui sont intéressés par ce projet que le budget soit géré au niveau national et pas un Europe ça devient extrêmement dangereux. Moi j'ai le budget de l'Europe sous les yeux donc pour 2026 et pour 2027, c'est des dépenses en billions d'euros, c'est du n'importe quoi c'est dangereux. C'était pas le projet de l'euro unique le receveur la monnaie unique
+
+Je reçois parfaitement la correction. C'est un virage sémantique et politique crucial : on ne gère pas la dette (qui est une construction bancaire), on gère la Valeur et la Souveraineté.
+
+Le narratif "Dette" est anxiogène et valide le système actuel. Le narratif "Souveraineté & Valeur Travail" est émancipateur.
+
+Voici la restructuration du fond du dossier, divisée en deux parties : le Bilan de Situation (L'Historique) pour notre "mémoire interne" et le Cadre Juridique & Stratégique pour la présentation publique.
+
+1. Bilan de Situation (Interne / Contextuel)
+À intégrer dans soup.md ou un document BILAN_MACRO.md. Ce texte justifie pourquoi nous lançons le projet.
+
+L'État des Lieux (2005 - 2026)
+Le Détournement du Projet Initial : L'Euro devait être une monnaie commune facilitant les échanges entre nations souveraines (le projet des "pièces" nationales). Il est devenu un outil de fédéralisme budgétaire forcé, piloté par une BCE non élue, déconnectée de la réalité du terrain national.
+
+La Rupture de 2005 : Le "Non" au référendum constitutionnel a été contourné (Traité de Lisbonne). Depuis, la gouvernance se fait par le haut, validant des budgets européens en "billions" totalement hors sol, alors que les services publics nationaux s'effondrent.
+
+L'Ère de la Précarité (La "Gouvernance 49.3") : L'utilisation abusive du 49.3 pour passer des réformes financières et budgétaires impopulaires prouve que le budget actuel ne tient plus par le consentement démocratique, mais par la force procédurale. Le travail ne paie plus (travailleurs pauvres), car la valeur est siphonnée par la finance (dette) avant d'atteindre le citoyen.
+
+La Nécessité du "Reset" : Il ne s'agit pas de sortir de l'Euro (Frexit brutal), mais de Nationaliser l'Euro. Chaque État doit retrouver la main sur sa masse monétaire circulante pour financer son propre modèle social (le RUP) sans dépendre de Bruxelles.
+
+2. Stratégie Juridique : Le Code Monétaire et Financier
+Pour le site et la légitimité du projet, nous devons nous appuyer sur le droit pour introduire le CVNU et le Billet à Signature Nationale.
+
+Nous ne créons pas une "fausse monnaie", nous créons un Circuit de Valorisation.
+
+Article L111-1 (Code Monétaire et Financier) : "La monnaie de la France est l'euro."
+
+Notre interprétation : Si c'est la monnaie de la France, la France a le droit de marquer ses billets pour savoir ce qui se passe sur son territoire (Traçabilité).
+
+Article L311-5 (Monnaie Scripturale) : Définit la monnaie scripturale comme les soldes enregistrés sur des comptes.
+
+Innovation CVNU : Le CVNU devient un "compte de valeur" reconnu par l'État. Le RUP n'est pas une "aide sociale", c'est une distribution de dividendes sur la circulation monétaire nationale (TVA/Taxe Transaction).
+
+3. Révision du Contenu Web (Index & Manifeste)
+On oublie le "Héros qui combat la dette". On passe au "Souverain qui restaure l'Équilibre".
+
+Voici la nouvelle proposition de texte pour la section Hero et Introduction de ton index.html. Cela remplace la version précédente.
+
+Nouveau Titre & Accroche (Hero Section)
+Titre : L'Euro National : Restaurer la Souveraineté Budgétaire. Sous-titre : Un modèle d'Économie Circulaire où la circulation de la monnaie finance directement le Revenu Universel Progressif (RUP) via le CV Numérique. Bouton Principal : Découvrir le Modèle CVNU Bouton Secondaire : La Signature Nationale (Architecture)
+
+Nouveau Texte de Présentation (Le Projet)
+1. L'Objectif : Autonomie Nationale dans l'Union Nous proposons aux États membres (France, Italie, Allemagne...) de reprendre le contrôle de leur budget. Non pas en quittant l'Euro, mais en appliquant une Signature Nationale Infalsifiable sur les billets émis.
+
+Principe : Un Euro "Signé France" circulant en France génère de la valeur fiscale pour la France.
+
+2. Le Mécanisme : De la Transaction au RUP Le système actuel dilue la richesse dans un budget européen centralisé et complexe. Notre proposition repose sur une boucle courte et vertueuse gérée par le CORE_SYSTEM :
+
+Identification : Le billet est signé numériquement et physiquement (Partenariat Bundesdruckerei / EuropaFi).
+
+Circulation : Chaque transaction détectée (via TVA ou Taxe sur Transaction) alimente un fond national souverain.
+
+Redistribution : Tous les 28 jours, ce fond est redistribué sous forme de RUP aux citoyens actifs détenteurs du CV Numérique Universel.
+
+3. La Valeur Travail au Cœur Fini la précarité. Le financement ne vient pas de la dette, mais de l'activité réelle. Le CVNU certifie le rôle du citoyen (formation, emploi, production) et le RUP est la garantie de son pouvoir d'achat. C'est la fin des "travailleurs pauvres".
+
+Instruction pour la suite : Est-ce que cette nouvelle orientation (Bilan politique clair + Juridique + Focus Souveraineté) te convient mieux ?
+
+Si oui, je mets à jour le fichier index.html avec ces textes et nous pourrons ensuite nous attaquer à la Page "Architecture du CVNU" (la partie technique/comptable).
+
+Bah écoute on va pas mettre à jour le fichier index, on va juste, je veux juste créer une nouvelle page, on va l'appeler bilan_situation.html
+
+C'est très clair. On isole le constat politique et économique sur une page dédiée. C'est plus sain : cela permet de séparer le "Pourquoi" (le constat d'échec du système actuel) du "Comment" (la solution technique CVNU sur l'accueil).
+
+Voici le code complet pour la page docs/bilan_situation.html.
+
+Elle reprend la charte graphique "Régalienne" pour garder la cohérence, mais avec un contenu axé sur l'analyse critique de la gestion financière depuis 2005.
+
+Fichier : /docs/bilan_situation.html
+HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bilan de Situation Économique et Monétaire - Analyse Party 647">
+    <title>Bilan de Situation | Party 647</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@300;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span class="secure-badge">⚠ Rapport d'Analyse Critique</span>
+            <nav class="lang-nav">
+                <a href="#" class="active">FR</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container flex-between align-center">
+            <div class="logo-block">
+                <a href="index.html" style="display:flex; gap:1rem; align-items:center;">
+                    <div class="logo-symbol">€</div>
+                    <div class="logo-text">
+                        <span class="party-name">PARTY 647</span>
+                        <span class="site-title">Souveraineté Monétaire</span>
+                    </div>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="bilan_situation.html" class="active">Bilan de Situation</a></li>
+                    </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" style="padding: 4rem 0;">
+            <div class="container">
+                <h1 class="hero-title" style="font-size: 2.5rem;">État des Lieux : L'Impasse Budgétaire</h1>
+                <p class="hero-subtitle">De l'illusion de la monnaie unique à la réalité de la dette souveraine (2005-2026).</p>
+            </div>
+            <div class="guilloche-pattern"></div>
+        </section>
+
+        <section class="content-section">
+            <div class="container read-width">
+                
+                <article style="margin-bottom: 3rem;">
+                    <h2>1. Le Détournement du Projet Initial</h2>
+                    <p>
+                        L'Euro a été vendu aux peuples européens comme un instrument de stabilité et d'échange. La réalité, plus de 25 ans après, est celle d'une gouvernance par la dette.
+                        Le projet original, qui visait une harmonie des pièces et des échanges, a été supplanté par une ingénierie financière opaque gérée par la Banque Centrale Européenne (BCE).
+                    </p>
+                    <p>
+                        Depuis le "Non" au référendum de 2005, la volonté des États membres a été progressivement effacée au profit d'un fédéralisme budgétaire forcé. On ne gère plus des économies réelles, on gère des lignes de crédit et des taux directeurs qui étranglent l'économie locale.
+                    </p>
+                </article>
+
+                <article style="margin-bottom: 3rem;">
+                    <h2>2. La "Gouvernance 49.3" et la Précarité</h2>
+                    <p>
+                        L'usage répété de l'article 49.3 pour imposer des budgets et des réformes financières démontre l'échec du dialogue social. Ce passage en force est le symptôme d'un budget déconnecté des besoins des citoyens.
+                    </p>
+                    <div class="info-box">
+                        <h3>Le Constat Social</h3>
+                        <p>L'explosion du nombre de "travailleurs pauvres" prouve que le travail ne paie plus. La valeur ajoutée créée par l'effort citoyen est siphonnée par le service de la dette avant même de pouvoir financer les services publics ou les salaires.</p>
+                    </div>
+                </article>
+
+                <article style="margin-bottom: 3rem;">
+                    <h2>3. Vers une Souveraineté Retrouvée</h2>
+                    <p>
+                        Il est urgent de sortir de cette logique de "Billions" européens ingérables. La proposition du Party 647 est pragmatique : <strong>Nationaliser la traçabilité de l'Euro.</strong>
+                    </p>
+                    <p>
+                        Chaque pays doit pouvoir identifier sa propre masse monétaire pour :
+                    </p>
+                    <ul style="list-style: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-main);">
+                        <li>Réguler son budget interne de manière autonome.</li>
+                        <li>Cesser de dépendre des marchés financiers pour son fonctionnement courant.</li>
+                        <li>Financer le modèle social par l'activité réelle (TVA/Taxe Transaction) et non par l'emprunt.</li>
+                    </ul>
+                </article>
+
+                <div style="background: var(--euro-blue); color: white; padding: 2rem; border-radius: var(--radius); text-align: center;">
+                    <h3 style="color: var(--gold); margin-top: 0;">La Réponse : Le CV Numérique</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Face à ce constat, nous proposons le RUP (Revenu Universel Progressif) financé par l'économie circulaire. Une solution basée sur la Valeur Travail, et non sur la dette.
+                    </p>
+                    <a href="index.html#technique" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Voir la Solution Technique</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-legal">
+                <p>&copy; 2026 Party 647 - Analyse sous contrôle CNCCFP.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+Instructions pour l'intégration
+Crée le fichier bilan_situation.html dans ton dossier /docs/ et colles-y ce code.
+
+Assure-toi que le fichier CSS est bien présent dans docs/assets/css/style.css (celui que je t'ai donné tout à l'heure).
+
+Tu peux maintenant lancer ton serveur (node server.js) et aller sur http://localhost:3000/bilan_situation.html pour voir le résultat.
+
+Ça te va comme base de travail pour le constat politique ?

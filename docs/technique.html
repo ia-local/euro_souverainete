@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spécifications Techniques du Système CVNU et de l'Euro à Signature Nationale">
+    <title>Architecture Technique | Party 647</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@300;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .tech-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-top: 4px solid var(--gold);
+            padding: 2rem;
+            border-radius: var(--radius);
+        }
+        .step-number {
+            font-family: var(--font-heading);
+            color: var(--euro-blue-dark);
+            font-size: 3rem;
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: -1rem;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        .flow-diagram {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border: 1px dashed var(--euro-blue);
+            margin: 2rem 0;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container flex-between">
+            <span class="secure-badge">⚙️ Spécifications Techniques v1.0</span>
+            <nav class="lang-nav">
+                <a href="#" class="active">FR</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container flex-between align-center">
+            <div class="logo-block">
+                <a href="index.html" style="display:flex; gap:1rem; align-items:center;">
+                    <div class="logo-symbol">€</div>
+                    <div class="logo-text">
+                        <span class="party-name">PARTY 647</span>
+                        <span class="site-title">Souveraineté Monétaire</span>
+                    </div>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="bilan_situation.html">Bilan</a></li>
+                    <li><a href="technique.html" class="active">Architecture</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" style="padding: 4rem 0;">
+            <div class="container">
+                <h1 class="hero-title" style="font-size: 2.5rem;">Architecture du CVNU</h1>
+                <p class="hero-subtitle">Le protocole de synchronisation entre la masse monétaire physique et la redistribution numérique.</p>
+            </div>
+            <div class="guilloche-pattern"></div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                
+                <article>
+                    <h2>1. Le Billet à "Preuve d'État" (Hardware)</h2>
+                    <p>La base du système repose sur la transformation du billet en Euro standard en un objet connecté passif, capable de certifier son origine nationale sans nécessiter de batterie.</p>
+                    
+                    
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="step-number">01</div>
+                            <h3>Signature Optique</h3>
+                            <p>Utilisation d'encres OVI (Optical Variable Ink) spécifiques à chaque État membre (Ex: Hexagone pour la France, Aigle pour l'Allemagne) imprimées par la Bundesdruckerei.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="step-number">02</div>
+                            <h3>Puce NFC Passive</h3>
+                            <p>Insertion d'un fil de sécurité "Smart Thread" contenant une clé privée chiffrée. Cette puce est lisible par les TPE (Terminaux de Paiement) mis à jour.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article style="margin-top: 4rem;">
+                    <h2>2. Le Circuit de Valorisation (Data Flow)</h2>
+                    <p>Contrairement à la TVA classique qui disparait dans le budget général, la taxe générée par ces billets est fléchée en temps réel.</p>
+                    
+                    
+
+                    <div class="flow-diagram">
+                        <strong>TRANSACTION PHYSIQUE</strong> (Boulangerie) 
+                        <br>↓<br> 
+                        <strong>DÉTECTION TPE</strong> (Lecture Signature "FR") 
+                        <br>↓<br> 
+                        <strong>EXTRACTION TTF</strong> (Taxe Transactionnelle Interne)
+                        <br>↓<br> 
+                        <strong>ROUTAGE API</strong> (Vers CORE_SYSTEM_CVNU.js)
+                    </div>
+                </article>
+
+                <article style="margin-top: 4rem;">
+                    <h2>3. L'Algorithme de Redistribution</h2>
+                    <p>Le Revenu Universel Progressif n'est pas une somme arbitraire. C'est le résultat mathématique de la vélocité monétaire nationale calculée sur 28 jours.</p>
+                    
+                    <div class="info-box">
+                        <h3>🧮 Formule de Calcul (Simplifiée)</h3>
+                        <p>Le montant du RUP individuel est recalculé à chaque cycle (J-28).</p>
+                        <div class="code-block">
+// Pseudo-code Algorithme RUP
+CONST CYCLE_DAYS = 28;
+VAR national_pool = GET_TOTAL_TAX_COLLECTED(); // Cagnotte Nationale
+VAR active_citizens = COUNT_VALID_CVNU(); // Citoyens éligibles
+
+FUNCTION CALCULATE_RUP() {
+    RETURN (national_pool * 0.85) / active_citizens;
+    // 15% restants pour frais de fonctionnement réseau
+}
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-legal">
+                <p>&copy; 2026 Party 647 - Protocole Open Source.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
