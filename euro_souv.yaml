@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: API Souveraineté Monétaire (Party 647)
+  description: Interface de gestion du CVNU, de l'Intelligence Souveraine et de la mémoire historique (Soup).
+  version: 1.0.0
+servers:
+  - url: http://localhost:7500
+    description: Serveur Local Souverain
+
+components:
+  schemas:
+    AIQuery:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: La question posée à l'IA ou la commande à exécuter.
+          example: "Analyse le budget européen 2027."
+    
+    SoupEntry:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: string
+          description: Donnée textuelle à ajouter à la mémoire historique.
+          example: "Note: Le déficit budgétaire est lié aux taux directeurs."
+
+paths:
+  /api/sovereign-intelligence:
+    post:
+      summary: Interroger l'IA Souveraine (Groq LPU)
+      description: Envoie un prompt à l'IA. Le système injecte automatiquement le contenu de soup.md comme contexte (DataLoader).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIQuery'
+      responses:
+        '200':
+          description: Réponse générée par l'IA.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+
+  /api/soup:
+    get:
+      summary: Lire la mémoire historique (cat soup.md)
+      description: Récupère l'intégralité du contenu du fichier soup.md.
+      responses:
+        '200':
+          description: Contenu du fichier.
+          content:
+            text/plain:
+              schema:
+                type: string
+    
+    post:
+      summary: Ajouter une entrée à la mémoire (Append)
+      description: Ajoute une nouvelle ligne datée dans le fichier soup.md.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SoupEntry'
+      responses:
+        '200':
+          description: Confirmation de l'enregistrement.
